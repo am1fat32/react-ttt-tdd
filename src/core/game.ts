@@ -5,14 +5,18 @@ export interface Point {
 
 export type Player = 'x' | 'o';
 
-const INITIAL_BOARD = [
+const DEFAULT_BORDER = [
     ['', '', ''],
     ['', '', ''],
     ['', '', ''],
 ];
 
 export class Game {
-    private _board = INITIAL_BOARD;
+    private _board: string[][];
+
+    constructor(board: string[][] = DEFAULT_BORDER) {
+        this._board = board;
+    }
 
     public getState(): string[][] {
         return this._board;

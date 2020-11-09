@@ -7,7 +7,7 @@ describe('Game', () => {
         game = new Game();
     });
 
-    it('should return empty game state', () => {
+    it('should have empty game board', () => {
         const board = game.getState();
 
         const expected = [
@@ -17,6 +17,16 @@ describe('Game', () => {
         ];
 
         expect(board).toEqual(expected);
+    });
+
+    it('should apply given board via constructor', () => {
+        const board = [
+            ['x', 'x', 'x'],
+            ['o', 'x', 'o'],
+            ['o', 'o', 'o'],
+        ];
+        const game = new Game(board);
+        expect(game.getState()).toEqual(board);
     });
 
     it('should set apply move correctly', () => {
