@@ -4,21 +4,23 @@ export interface Point {
 }
 
 export type Player = 'x' | 'o';
+export type CellValue = '' | Player;
+export type Board = CellValue[][];
 
-const DEFAULT_BOARD = [
+const DEFAULT_BOARD: Board = [
     ['', '', ''],
     ['', '', ''],
     ['', '', ''],
 ];
 
 export class Game {
-    private _board: string[][];
+    private _board: Board;
 
-    constructor(board: string[][] = DEFAULT_BOARD) {
+    constructor(board: Board = DEFAULT_BOARD) {
         this._board = board;
     }
 
-    public getState(): string[][] {
+    public getState(): Board {
         return this._board;
     }
 
@@ -32,8 +34,8 @@ export class Game {
             || this._hasWinByDiagonal(player);
     }
 
-    private _hasMatch(arr: string[][], player: Player): boolean {
-        return arr.some((it: string[]) => it.every((cellValue: string) => cellValue === player));
+    private _hasMatch(arr: CellValue[][], player: Player): boolean {
+        return arr.some((it: CellValue[]) => it.every((cellValue: CellValue) => cellValue === player));
     }
 
 
@@ -67,6 +69,5 @@ export class Game {
             [diagonal1, diagonal2],
             player,
         );
-
     }
 }

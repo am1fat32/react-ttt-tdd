@@ -1,4 +1,4 @@
-import {Point, Game, Player} from './game';
+import {Point, Game, Player, Board} from './game';
 
 describe('Game', () => {
     let game: Game;
@@ -20,7 +20,7 @@ describe('Game', () => {
     });
 
     it('should apply given board via constructor', () => {
-        const board = [
+        const board: Board = [
             ['x', 'x', 'x'],
             ['o', 'x', 'o'],
             ['o', 'o', 'o'],
@@ -82,19 +82,19 @@ describe('Game', () => {
     });
 
     it('should check horizontal win', () => {
-        const winBoard1 = [
+        const winBoard1: Board = [
             ['x', 'x', 'x'],
             ['', '', ''],
             ['', '', ''],
         ];
 
-        const winBoard2 = [
+        const winBoard2: Board = [
             ['', '', ''],
             ['x', 'x', 'x'],
             ['', '', ''],
         ];
 
-        const winBoard3 = [
+        const winBoard3: Board = [
             ['', '', ''],
             ['', '', ''],
             ['x', 'x', 'x'],
@@ -110,19 +110,19 @@ describe('Game', () => {
     });
 
     it('should check vertical win', () => {
-        const winBoard1 = [
+        const winBoard1: Board = [
             ['x', '', ''],
             ['x', '', ''],
             ['x', '', ''],
         ];
 
-        const winBoard2 = [
+        const winBoard2: Board = [
             ['', 'x', ''],
             ['', 'x', ''],
             ['', 'x', ''],
         ];
 
-        const winBoard3 = [
+        const winBoard3: Board = [
             ['', '', 'x'],
             ['', '', 'x'],
             ['', '', 'x'],
@@ -138,13 +138,13 @@ describe('Game', () => {
     });
 
     it('should check diagonal win', () => {
-        const winBoard1 = [
+        const winBoard1: Board = [
             ['x', '', ''],
             ['', 'x', ''],
             ['', '', 'x'],
         ];
 
-        const winBoard2 = [
+        const winBoard2: Board = [
             ['', '', 'x'],
             ['', 'x', ''],
             ['x', '', ''],
