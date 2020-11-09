@@ -34,8 +34,9 @@ export class Game {
             || this._hasWinByDiagonal(player);
     }
 
-    private _hasMatch(arr: CellValue[][], player: Player): boolean {
-        return arr.some((it: CellValue[]) => it.every((cellValue: CellValue) => cellValue === player));
+    private _hasMatch(boardSlices: CellValue[][], player: Player): boolean {
+        const hasFullMatch = (cellValue: CellValue) => cellValue === player;
+        return boardSlices.some((slice: CellValue[]) => slice.every(hasFullMatch));
     }
 
 
