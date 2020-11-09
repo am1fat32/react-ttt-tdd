@@ -80,4 +80,80 @@ describe('Game', () => {
             expect(game.getState()).toEqual(expected);
         });
     });
+
+    it('should check horizontal win', () => {
+        const winBoard1 = [
+            ['x', 'x', 'x'],
+            ['', '', ''],
+            ['', '', ''],
+        ];
+
+        const winBoard2 = [
+            ['', '', ''],
+            ['x', 'x', 'x'],
+            ['', '', ''],
+        ];
+
+        const winBoard3 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['x', 'x', 'x'],
+        ];
+
+        const game1 = new Game(winBoard1);
+        const game2 = new Game(winBoard2);
+        const game3 = new Game(winBoard3);
+
+        expect(game1.isWinner('x')).toEqual(true);
+        expect(game2.isWinner('x')).toEqual(true);
+        expect(game3.isWinner('x')).toEqual(true);
+    });
+
+    it('should check vertical win', () => {
+        const winBoard1 = [
+            ['x', '', ''],
+            ['x', '', ''],
+            ['x', '', ''],
+        ];
+
+        const winBoard2 = [
+            ['', 'x', ''],
+            ['', 'x', ''],
+            ['', 'x', ''],
+        ];
+
+        const winBoard3 = [
+            ['', '', 'x'],
+            ['', '', 'x'],
+            ['', '', 'x'],
+        ];
+
+        const game1 = new Game(winBoard1);
+        const game2 = new Game(winBoard2);
+        const game3 = new Game(winBoard3);
+
+        expect(game1.isWinner('x')).toEqual(true);
+        expect(game2.isWinner('x')).toEqual(true);
+        expect(game3.isWinner('x')).toEqual(true);
+    });
+
+    it('should check diagonal win', () => {
+        const winBoard1 = [
+            ['x', '', ''],
+            ['', 'x', ''],
+            ['', '', 'x'],
+        ];
+
+        const winBoard2 = [
+            ['', '', 'x'],
+            ['', 'x', ''],
+            ['x', '', ''],
+        ];
+
+        const game1 = new Game(winBoard1);
+        const game2 = new Game(winBoard2);
+
+        expect(game1.isWinner('x')).toEqual(true);
+        expect(game2.isWinner('x')).toEqual(true);
+    });
 });
