@@ -5,7 +5,7 @@ export interface Point {
 
 export type Player = 'x' | 'o';
 
-const DEFAULT_BORDER = [
+const DEFAULT_BOARD = [
     ['', '', ''],
     ['', '', ''],
     ['', '', ''],
@@ -14,7 +14,7 @@ const DEFAULT_BORDER = [
 export class Game {
     private _board: string[][];
 
-    constructor(board: string[][] = DEFAULT_BORDER) {
+    constructor(board: string[][] = DEFAULT_BOARD) {
         this._board = board;
     }
 
